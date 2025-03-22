@@ -13,20 +13,6 @@
     gap: 0.5rem;
 
     li {
-      &.active {
-        a {
-          background-color: #007bff;
-          color: white;
-        }
-      }
-
-      &.disabled {
-        a {
-          color: #6c757d;
-          pointer-events: none;
-        }
-      }
-
       a {
         display: block;
         padding: 0.5rem 1rem;
@@ -38,6 +24,20 @@
 
         &:hover {
           background-color: #e9ecef;
+        }
+      }
+
+      &.active {
+        a {
+          background-color: #007bff;
+          color: white;
+        }
+      }
+
+      &.disabled {
+        a {
+          color: #6c757d;
+          pointer-events: none;
         }
       }
     }

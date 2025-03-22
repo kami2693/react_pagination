@@ -24,6 +24,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   const renderPageNumbers = () => {
     const pages = [];
+
     for (let i = 1; i <= totalPages; i++) {
       pages.push(
         <li
@@ -34,16 +35,17 @@ export const Pagination: React.FC<PaginationProps> = ({
           <a
             data-cy="pageLink"
             href={`#${i}`}
-            onClick={(e) => {
+            onClick={e => {
               e.preventDefault();
               handlePageChange(i);
             }}
           >
             {i}
           </a>
-        </li>
+        </li>,
       );
     }
+
     return pages;
   };
 
@@ -57,14 +59,11 @@ export const Pagination: React.FC<PaginationProps> = ({
       </div>
 
       <ul className="pagination__list">
-        <li
-          className={currentPage === 1 ? 'disabled' : ''}
-          data-cy="prev"
-        >
+        <li className={currentPage === 1 ? 'disabled' : ''} data-cy="prev">
           <a
             data-cy="prevLink"
             href="#prev"
-            onClick={(e) => {
+            onClick={e => {
               e.preventDefault();
               if (currentPage > 1) {
                 handlePageChange(currentPage - 1);
@@ -85,7 +84,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           <a
             data-cy="nextLink"
             href="#next"
-            onClick={(e) => {
+            onClick={e => {
               e.preventDefault();
               if (currentPage < totalPages) {
                 handlePageChange(currentPage + 1);
@@ -101,8 +100,9 @@ export const Pagination: React.FC<PaginationProps> = ({
       <select
         data-cy="perPageSelector"
         value={perPage}
-        onChange={(e) => {
+        onChange={e => {
           const newPerPage = Number(e.target.value);
+
           onPerPageChange(newPerPage);
         }}
       >
